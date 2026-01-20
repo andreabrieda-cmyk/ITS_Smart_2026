@@ -56,6 +56,71 @@ h1::after {
     border-radius: 2px;
 }
 
+/* Sezione aggiunta nuovo registro */
+.new {
+    display: flex;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+    animation: slideInDown 0.6s ease-out;
+}
+
+/* Input della sezione new */
+.new input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.new input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.new input::placeholder {
+    color: #999;
+}
+
+/* Bottone aggiungi */
+.new button {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 150px;
+}
+
+.new button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+}
+
+.new button:active {
+    transform: translateY(-1px);
+}
+
 /* Container principale */
 .container {
     display: grid;
@@ -211,6 +276,22 @@ h1 {
         margin-top: 10px;
     }
 
+    .new {
+        flex-direction: column;
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+
+    .new input {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .new button {
+        width: 100%;
+        min-width: unset;
+    }
+
     .container {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -233,6 +314,22 @@ h1 {
     h1 {
         font-size: 1.5rem;
         margin-bottom: 25px;
+    }
+
+    .new {
+        flex-direction: column;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .new input {
+        width: 100%;
+        padding: 10px 12px;
+    }
+
+    .new button {
+        width: 100%;
+        padding: 10px 20px;
     }
 
     .register {
