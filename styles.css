@@ -10,38 +10,23 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background: #0f172a;
     min-height: 100vh;
     padding: 40px 20px;
     position: relative;
     overflow-x: hidden;
-}
-
-/* Animazione di sfondo (opzionale) */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
+    color: #e2e8f0;
 }
 
 /* Heading principale */
 h1 {
     text-align: center;
-    color: white;
+    color: #f1f5f9;
     margin-bottom: 50px;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    letter-spacing: 0.5px;
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
     position: relative;
     z-index: 1;
 }
@@ -49,84 +34,201 @@ h1 {
 h1::after {
     content: '';
     display: block;
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, #fff, transparent);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #ec4899);
     margin: 15px auto 0;
     border-radius: 2px;
+}
+
+/* Sezione statistiche hero */
+.stats-hero {
+    display: flex;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-card-hero {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 2px solid #3b82f6;
+    border-radius: 16px;
+    padding: 40px 60px;
+    text-align: center;
+    animation: slideInDown 0.6s ease-out;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.stat-card-hero:hover {
+    border-color: #ec4899;
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.3);
+    transform: translateY(-4px);
+}
+
+.stat-card-hero .stat-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.stat-value-hero {
+    font-size: 4.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+}
+
+.stat-value-hero::after {
+    content: '°C';
+    font-size: 2rem;
+    color: #64748b;
+    font-weight: 700;
+}
+
+/* Wrapper per form e stats */
+.form-stats-wrapper {
+    display: flex;
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto 50px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sezione statistiche */
+.stats {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    min-width: 280px;
+    animation: slideInDown 0.6s ease-out;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.stat-value {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #3b82f6;
+    margin-bottom: 15px;
 }
 
 /* Sezione aggiunta nuovo registro */
 .new {
     display: flex;
-    gap: 15px;
-    max-width: 1200px;
-    margin: 0 auto 50px;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    gap: 12px;
+    flex: 1;
+    padding: 28px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 12px;
     position: relative;
     z-index: 1;
     flex-wrap: wrap;
     animation: slideInDown 0.6s ease-out;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.new:hover {
+    border-color: #ec4899;
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.15);
 }
 
 /* Input della sezione new */
 .new input {
     flex: 1;
-    min-width: 200px;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 180px;
+    padding: 12px 16px;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
     transition: all 0.3s ease;
-    background: white;
+    background: #0f172a;
+    color: #f1f5f9;
 }
 
 .new input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: #1e293b;
 }
 
 .new input::placeholder {
-    color: #999;
+    color: #64748b;
 }
 
 /* Bottone aggiungi */
 .new button {
-    padding: 12px 30px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    min-width: 150px;
+    min-width: 140px;
 }
 
 .new button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(236, 72, 153, 0.4);
 }
 
 .new button:active {
-    transform: translateY(-1px);
+    transform: translateY(0);
 }
 
 /* Container principale */
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1400px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -134,17 +236,17 @@ h1::after {
 
 /* Singola card registro */
 .register {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 28px;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 /* Bordo superiore colorato */
@@ -154,38 +256,22 @@ h1::after {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #ec4899);
 }
 
 /* Effetto hover */
 .register:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-}
-
-.register:hover::after {
-    opacity: 1;
-}
-
-/* Sfondo animato al hover */
-.register::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -50px;
-    width: 100px;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1));
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(-8px);
+    border-color: #3b82f6;
+    box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
 }
 
 /* Nome della macchina */
 .macchina {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #94a3b8;
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
@@ -193,35 +279,33 @@ h1::after {
 }
 
 .macchina::before {
-    content: '⚙️ ';
-    margin-right: 8px;
+    content: '⚡ ';
+    margin-right: 6px;
+    color: #3b82f6;
 }
 
 /* Valore temperatura */
 .temperatura {
-    font-size: 3rem;
-    font-weight: 700;
-    color: transparent;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    margin-bottom: 10px;
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #ec4899;
     position: relative;
     z-index: 2;
 }
 
 .temperatura::after {
     content: '°C';
-    font-size: 1.5rem;
-    color: #764ba2;
-    margin-left: 5px;
+    font-size: 1.4rem;
+    color: #64748b;
+    margin-left: 4px;
+    font-weight: 600;
 }
 
 /* Animazioni di entrata */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(24px);
     }
     to {
         opacity: 1;
@@ -232,16 +316,12 @@ h1::after {
 @keyframes slideInDown {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-16px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.register {
-    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 .register:nth-child(1) {
@@ -267,19 +347,56 @@ h1 {
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin-bottom: 30px;
     }
 
     h1::after {
-        width: 80px;
-        margin-top: 10px;
+        width: 50px;
+    }
+
+    .stats-hero {
+        margin-bottom: 30px;
+    }
+
+    .stat-card-hero {
+        padding: 30px 40px;
+    }
+
+    .stat-value-hero {
+        font-size: 3.2rem;
+    }
+
+    .stat-value-hero::after {
+        font-size: 1.6rem;
+    }
+
+    .form-stats-wrapper {
+        flex-direction: column;
+        margin-bottom: 30px;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+    }
+
+    .stat-card {
+        flex: 1;
+        min-width: 100%;
+        padding: 20px;
+    }
+
+    .stat-value {
+        font-size: 2.2rem;
     }
 
     .new {
         flex-direction: column;
-        margin-bottom: 30px;
         padding: 20px;
+        align-items: stretch;
+        gap: 12px;
     }
 
     .new input {
@@ -294,32 +411,69 @@ h1 {
 
     .container {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
     }
 
     .register {
-        padding: 25px;
+        padding: 20px;
     }
 
     .temperatura {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
     }
 
     .macchina {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    h1::after {
+        width: 40px;
+    }
+
+    .stats-hero {
         margin-bottom: 25px;
+    }
+
+    .stat-card-hero {
+        padding: 25px 30px;
+    }
+
+    .stat-value-hero {
+        font-size: 2.8rem;
+    }
+
+    .stat-value-hero::after {
+        font-size: 1.4rem;
+    }
+
+    .form-stats-wrapper {
+        flex-direction: column;
+        margin-bottom: 20px;
+        gap: 16px;
+    }
+
+    .stat-card {
+        min-width: unset;
+        width: 100%;
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 1.8rem;
     }
 
     .new {
         flex-direction: column;
-        padding: 15px;
-        gap: 12px;
+        padding: 16px;
+        gap: 10px;
+        align-items: stretch;
     }
 
     .new input {
@@ -329,13 +483,12 @@ h1 {
 
     .new button {
         width: 100%;
-        padding: 10px 20px;
+        padding: 10px 16px;
     }
 
     .register {
-        padding: 20px;
-        gap: 15px;
-        border-radius: 12px;
+        padding: 16px;
+        gap: 12px;
     }
 
     .temperatura {
@@ -343,7 +496,11 @@ h1 {
     }
 
     .temperatura::after {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .macchina {
+        font-size: 0.85rem;
     }
 }
 
@@ -353,14 +510,14 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(102, 126, 234, 0.5);
+    background: #334155;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(102, 126, 234, 0.7);
+    background: #475569;
 }

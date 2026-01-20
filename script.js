@@ -2,6 +2,28 @@ const btnAggiungi = document.getElementById('btnAggiungi');
 const inputMacchina = document.getElementById('inputMacchina');
 const inputTemperatura = document.getElementById('inputTemperatura');
 const container = document.querySelector('.container');
+const tempMediaElement = document.getElementById('tempMedia');
+
+function calcolaTemperaturaMedia() {
+    const temperatureElements = container.querySelectorAll('.temperatura');
+    
+    if (temperatureElements.length === 0) {
+        tempMediaElement.textContent = '-';
+        return;
+    }
+
+    let sommaTemperature = 0;
+    temperatureElements.forEach(elem => {
+        // Estrai solo il numero (rimuovi il simbolo °C)
+        const temp = parseFloat(elem.textContent.replace('°C', ''));
+        if (!isNaN(temp)) {
+            sommaTemperature += temp;
+        }
+    });
+
+    const media = (sommaTemperature / temperatureElements.length).toFixed(1);
+    tempMediaElement.textContent = media + '°C';
+}
 
 function aggiungiNuovo() {
     const macchina = inputMacchina.value.trim();
@@ -27,6 +49,9 @@ function aggiungiNuovo() {
     inputMacchina.value = '';
     inputTemperatura.value = '';
     inputMacchina.focus();
+
+    // Aggiorna la temperatura media
+    calcolaTemperaturaMedia();
 }
 
 btnAggiungi.addEventListener('click', aggiungiNuovo);
@@ -43,3 +68,6 @@ inputMacchina.addEventListener('keypress', function(e) {
         inputTemperatura.focus();
     }
 });
+
+// Calcola la media al caricamento della pagina
+document.addEventListener('DOMContentLoaded', calcolaTemperaturaMedia);
